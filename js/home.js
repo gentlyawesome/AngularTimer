@@ -8,7 +8,7 @@ angular
     var parse_date = date.getTime();
 
     $scope.employees = [
-      {name: "Jenelyn S. Supnet"},
+      {name: "Jenalyn S. Supnet"},
       {name: "Petronio A. Sienes"},
       {name: "Meryelle U. Mabutas"},
       {name: "Benjo L. Estacio"},
