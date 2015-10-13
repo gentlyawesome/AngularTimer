@@ -1,0 +1,53 @@
+<md-content>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>
+        <span>Timer</span>
+      </h2>
+      <span flex></span>
+      <md-datepicker ng-model="datePick" md-placeholder="Enter date" ng-change="setDate()" ></md-datepicker>
+    </div>
+  </md-toolbar>
+
+  <md-toolbar class="md-primary md-hue-2 md-whiteframe-4dp">
+    <div class="md-toolbar-tools">
+    <md-button href="#/">Home</md-button> 
+    <md-button href="#/clocking"class="md-raised md-accent md-hue-3">Clockings</md-button> 
+    <md-button href="#/break">Breaks</md-button> 
+    <span flex></span>
+    <md-button class="md-raised md-accent md-hue-3">Date Selected: {{selectedDate | date: 'mediumDate'}}</md-button> 
+    </div>
+  </md-toolbar>
+
+  <md-card ng-repeat="(key, value) in times">
+    <md-content-card ng-show="value.timeOut">
+    <div layout="row" class="md-padding">
+      <div flex>
+      <center>
+        <h2>{{ value.employeeName }}</h2>
+        <div layout="row">
+          <div flex>
+          <p class="md-subhead">Time In At:<br> {{ value.inDate | date: 'medium' }}</p>
+  	</div>
+          <div flex>
+          <p class="md-subhead">Time Out At:<br> {{ value.outDate | date: 'medium' }}</p>
+  	</div>
+        </div>
+      </center>
+      </div>
+  
+      <div flex>
+      <center>
+      <h2>Total Time</h2>
+        <div layout="row">
+          <div flex>
+            <p class="md-subhead">Hours: {{ value.hours }} Minutes: {{ value.minutes }} Seconds: {{ value.seconds }}</p>
+  	</div>
+        </div>
+      </center>
+      </div>
+    </div>
+    </md-content-card>
+  </md-card>
+</md-content>
+
