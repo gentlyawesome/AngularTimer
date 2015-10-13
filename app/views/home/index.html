@@ -40,7 +40,7 @@
   <div layout="row" class="md-padding">
     <div flex>
     <center>
-      <h2>{{ value.employeeName }} [{{ value.type }}]</h2>
+      <h2>{{ value.employeeName }}</h2>
       <p class="md-subhead">{{ value.type | uppercase }} In At:<br> {{ value.inDate | date: 'medium' }}</p>
     </center>
     </div>
@@ -48,7 +48,8 @@
     <div flex>
     <center>
     <h4><timer interval="1000" start-time="value.inDate">{{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}.</timer></h4>
-    <md-button class="md-raised md-accent md-hue-2" layout-align="center center" ng-click="stopTimer(value.$id)">Time Out</md-button>
+    <md-button class="md-raised md-primary md-hue-2" layout-align="center center" ng-click="stopTimer(value.$id)" ng-if="value.type == 'TimeIn'">Time Out</md-button>
+    <md-button class="md-raised md-accent md-hue-2" layout-align="center center" ng-click="stopTimer(value.$id)" ng-if="value.type == 'Break'">Break Out</md-button>
     </center>
     </div>
   </div>
