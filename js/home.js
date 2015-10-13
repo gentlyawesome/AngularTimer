@@ -8,7 +8,6 @@ angular
     var parse_date = date.getTime();
 
     $scope.employees = [
-      {name: "Michelle L. Daquigan"},
       {name: "Jenelyn S. Supnet"},
       {name: "Petronio A. Sienes"},
       {name: "Meryelle U. Mabutas"},
@@ -65,10 +64,10 @@ angular
     $scope.stopTimer = function (id){
         this.$broadcast('timer-stop');
 
-        var date = new Date;
+        var date = new Date($scope.selectedDate);
         var date_format = date.getFullYear()+'-'+date.getDate()+'-'+(date.getMonth()+1);
         var clocking = new Firebase(FBURL + date_format + '/' + id);
-       
+
         clocking.once('value', function(snap) { 
           var first_data = snap.val();
           $scope.$on('timer-stopped', function (event, data){
@@ -90,6 +89,10 @@ angular
         });
         
     };
+
+    $scope.$on('timer-stopped', function (event, data){
+        console.log('Timer Stopped - data = ', data);
+    });
 
 
   })
