@@ -37,7 +37,7 @@
   </md-card>
   
   <div layout="row" ng-repeat="block in times | chunkBy: 4">
-  <md-card flex ng-repeat="(key, value) in block">
+  <md-card flex ng-repeat="(key, value) in block" >
     <md-content-card ng-hide="value.timeOut">
       <center>
         <h2>{{ value.employeeName }}</h2>

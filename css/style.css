@@ -5,3 +5,19 @@
 md-datepicker { 
  background-color: #3F51B5; 
 }
+
+/*
+.ng-enter, .ng-move{
+	-webkit-animation: fadeInLeft 1s;
+	-moz-animation: fadeInLeft 1s;
+	-o-animation: fadeInLeft 1s;
+	animation: fadeInLeft 1s;
+}
+
+.ng-leave{
+	-webkit-animation: fadeOutRight 1s;
+	-moz-animation: fadeOutRight 1s;
+	-o-animation: fadeOutRight 1s;
+	animation: fadeOutRight 1s;
+}
+*/

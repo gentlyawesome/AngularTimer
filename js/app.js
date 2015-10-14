@@ -6,6 +6,7 @@ angular.module('timerApp', [
     'themer',
     'firebase',
     'angular.filter',
+    'ngAnimate',
 
     'HomeApp'
   ]);
