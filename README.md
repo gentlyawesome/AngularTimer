@@ -11,3 +11,4 @@ Timer is a basic clocking system for employees using AngularJS, Firebase and Ang
 
 * Just clone the repo to your localhost because all dependencies are already included and ready to use to prevent hassle of setting it up.
 * If you want to use your own Firebase just edit the url in the config.js file
+* You can list the names in js/home.js
