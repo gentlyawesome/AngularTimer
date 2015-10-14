@@ -66,6 +66,7 @@ angular
 
     $scope.stopTimer = function (id){
         this.$broadcast('timer-stop');
+        
 
         var date = new Date($scope.selectedDate);
         var date_format = date.getFullYear()+'-'+date.getDate()+'-'+(date.getMonth()+1);
@@ -92,9 +93,9 @@ angular
         });
     };
 
-    $scope.$on('timer-stopped', function (event, data){
-        console.log('Timer Stopped - data = ', data);
-    });
+    //$scope.$on('timer-stopped', function (event, data){
+    //    console.log('Timer Stopped - data = ', data);
+    //});
 
 
   })
