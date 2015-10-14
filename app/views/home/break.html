@@ -19,35 +19,19 @@
     </div>
   </md-toolbar>
 
-  <md-card ng-repeat="(key, value) in times">
+  <div layout="row" ng-repeat="block in times | chunkBy: 4">
+  <md-card flex ng-repeat="(key, value) in block">
     <md-content-card ng-show="value.timeOut">
-    <div layout="row" class="md-padding">
-      <div flex>
       <center>
         <h2>{{ value.employeeName }}</h2>
-        <div layout="row">
-          <div flex>
-          <p class="md-subhead">Break In At:<br> {{ value.inDate | date: 'medium' }}</p>
-  	</div>
-          <div flex>
-          <p class="md-subhead">Break Out At:<br> {{ value.outDate | date: 'medium' }}</p>
-  	</div>
-        </div>
-      </center>
-      </div>
+        <p class="md-subhead">Break In At:<br> {{ value.inDate | date: 'medium' }}</p>
+        <p class="md-subhead">Break Out At:<br> {{ value.outDate | date: 'medium' }}</p>
   
-      <div flex>
-      <center>
       <h2>Total Time</h2>
-        <div layout="row">
-          <div flex>
-            <p class="md-subhead">Hours: {{ value.hours }} Minutes: {{ value.minutes }} Seconds: {{ value.seconds }}</p>
-  	</div>
-        </div>
+      <p class="md-subhead">Hours: {{ value.hours }} Minutes: {{ value.minutes }} Seconds: {{ value.seconds }}</p>
       </center>
-      </div>
-    </div>
     </md-content-card>
   </md-card>
+  </div>
 </md-content>
 

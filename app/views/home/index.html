@@ -18,41 +18,36 @@
     <md-button class="md-raised md-accent md-hue-3">Date Selected: {{selectedDate | date: 'mediumDate'}}</md-button> 
     </div>
   </md-toolbar>
-<md-card class="md-padding">
-  <md-content-card>
-  <md-input-container>
-    <label>Employee</label>
-    <md-select ng-model="employeeName">
-      <md-option ng-repeat="employee in employees" value="{{employee.name}}">
-        {{employee.name}}
-      </md-option>
-    </md-select>
-  </md-input-container>
-  <center>
-  <md-button class="md-raised md-primary md-hue-2" ng-click="startTimer('TimeIn')">Time In</md-button>
-  <md-button class="md-raised md-accent md-hue-2" ng-click="startTimer('Break')">Break</md-button>
-  </center>
-  </md-content-card>
-</md-card>
 
-<md-card ng-repeat="(key, value) in times">
-  <md-content-card ng-hide="value.timeOut">
-  <div layout="row" class="md-padding">
-    <div flex>
+  <md-card class="md-padding">
+    <md-content-card>
+    <md-input-container>
+      <label>Employee</label>
+      <md-select ng-model="employeeName">
+        <md-option ng-repeat="employee in employees" value="{{employee.name}}">
+          {{employee.name}}
+        </md-option>
+      </md-select>
+    </md-input-container>
     <center>
-      <h2>{{ value.employeeName }}</h2>
-      <p class="md-subhead">{{ value.type | uppercase }} In At:<br> {{ value.inDate | date: 'medium' }}</p>
+    <md-button class="md-raised md-primary md-hue-2" ng-click="startTimer('TimeIn')">Time In</md-button>
+    <md-button class="md-raised md-accent md-hue-2" ng-click="startTimer('Break')">Break</md-button>
     </center>
-    </div>
-
-    <div flex>
-    <center>
-    <h4><timer interval="1000" start-time="value.inDate">{{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}.</timer></h4>
-    <md-button class="md-raised md-primary md-hue-2" layout-align="center center" ng-click="stopTimer(value.$id)" ng-show="value.type == 'TimeIn'">Time Out</md-button>
-    <md-button class="md-raised md-accent md-hue-2" layout-align="center center" ng-click="stopTimer(value.$id)" ng-show="value.type == 'Break'">Break Out</md-button>
-    </center>
-    </div>
+    </md-content-card>
+  </md-card>
+  
+  <div layout="row" ng-repeat="block in times | chunkBy: 4">
+  <md-card flex ng-repeat="(key, value) in block">
+    <md-content-card ng-hide="value.timeOut">
+      <center>
+        <h2>{{ value.employeeName }}</h2>
+        <p class="md-subhead">{{ value.type | uppercase }} In At:<br> {{ value.inDate | date: 'medium' }}</p>
+  
+      <h4><timer interval="1000" start-time="value.inDate">{{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}.</timer></h4>
+      <md-button class="md-raised md-primary md-hue-2" layout-align="center center" ng-click="stopTimer(value.$id)" ng-show="value.type == 'TimeIn'">Time Out</md-button>
+      <md-button class="md-raised md-accent md-hue-2" layout-align="center center" ng-click="stopTimer(value.$id)" ng-show="value.type == 'Break'">Break Out</md-button>
+      </center>
+    </md-content-card>
+  </md-card>
   </div>
-  </md-content-card>
-</md-card>
 </md-content>

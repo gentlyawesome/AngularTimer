@@ -1,6 +1,6 @@
 angular
   .module("HomeApp", ['firebase', 'Config'])
-  .controller("HomeCtrl", function ($scope, FBURL, FBURL_BASE, FBURL_MAIN, $firebaseArray){
+  .controller("HomeCtrl", function ($scope, FBURL, FBURL_BASE, FBURL_MAIN, $firebaseArray, $location){
     var main = new Firebase(FBURL_MAIN);
     var ref = new Firebase(FBURL);
     var ref_base = new Firebase(FBURL_BASE + ".info/connected");
@@ -59,6 +59,9 @@ angular
           timeOut: false,
 	  type: type
         });
+	
+	$scope.employeeName = "";
+
     }; 
 
     $scope.stopTimer = function (id){
@@ -87,7 +90,6 @@ angular
             });
           });
         });
-        
     };
 
     $scope.$on('timer-stopped', function (event, data){

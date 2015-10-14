@@ -5,6 +5,7 @@ angular.module('timerApp', [
     'Config',
     'themer',
     'firebase',
+    'angular.filter',
 
     'HomeApp'
   ]);
