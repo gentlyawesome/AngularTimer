@@ -8,20 +8,20 @@ angular
     var parse_date = date.getTime();
 
     $scope.employees = [
-      {name: "Jenalyn S. Supnet"},
-      {name: "Petronio A. Sienes"},
-      {name: "Meryelle U. Mabutas"},
-      {name: "Benjo L. Estacio"},
-      {name: "Mohammad Arvin Jay M."},
-      {name: "Bernabe D. Balanag"},
-      {name: "Madelene E. Difuntorum"},
-      {name: "Daryll N. Nisperos"},
-      {name: "Jermin L. Deela Pena"},
-      {name: "Ed Jasper Tagudar"},
-      {name: "Melanie S. Ledesma"},
-      {name: "Jeremay R. Sagun"},
-      {name: "Lea Cris T. Dungan"},
-      {name: "Cornelio L. Martinez Jr."}
+      {name: "Jenalyn"},
+      {name: "Petronio"},
+      {name: "Meryelle"},
+      {name: "Benjo "},
+      {name: "Mohammad"},
+      {name: "Bernabe"},
+      {name: "Madelene"},
+      {name: "Daryll"},
+      {name: "Jermin"},
+      {name: "Ed Jasper"},
+      {name: "Melanie"},
+      {name: "Jeremay"},
+      {name: "Lea Cris"},
+      {name: "Cornelio "}
     ];
 
 
