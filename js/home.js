@@ -3,9 +3,17 @@ angular
   .controller("HomeCtrl", function ($scope, FBURL, FBURL_BASE, FBURL_MAIN, $firebaseArray, $location){
     var main = new Firebase(FBURL_MAIN);
     var ref = new Firebase(FBURL);
-    var ref_base = new Firebase(FBURL_BASE + ".info/connected");
+    var ref_status = new Firebase(FBURL_BASE + ".info/connected");
     var date = new Date;
     var parse_date = date.getTime();
+
+    ref_status.on("value", function(snap){
+      if (snap.val() === true) {
+        $scope.connection_status = "Online";
+      } else {
+        $scope.connection_status = "Disconnected, please check your internet.";
+      } 
+    });
 
     $scope.employees = [
       {name: "Jenalyn S. Supnet"},
@@ -100,9 +108,18 @@ angular
 
   })
 
-  .controller("ClockingCtrl", function ($scope, FBURL, FBURL_MAIN, $firebaseArray){
+  .controller("ClockingCtrl", function ($scope, FBURL, FBURL_MAIN,FBURL_BASE, $firebaseArray){
     var ref = new Firebase(FBURL);
     var main = new Firebase(FBURL_MAIN);
+    var ref_status = new Firebase(FBURL_BASE + ".info/connected");
+
+    ref_status.on("value", function(snap){
+      if (snap.val() === true) {
+        $scope.connection_status = "Online";
+      } else {
+        $scope.connection_status = "Disconnected, please check your internet.";
+      } 
+    });
 
     $scope.setDate = function(){
       var date = $scope.datePick;
@@ -125,9 +142,18 @@ angular
     
   })
 
-  .controller("BreakCtrl", function ($scope, FBURL, FBURL_MAIN, $firebaseArray){
+  .controller("BreakCtrl", function ($scope, FBURL, FBURL_MAIN, FBURL_BASE, $firebaseArray){
     var ref = new Firebase(FBURL);
     var main = new Firebase(FBURL_MAIN);
+    var ref_status = new Firebase(FBURL_BASE + ".info/connected");
+
+    ref_status.on("value", function(snap){
+      if (snap.val() === true) {
+        $scope.connection_status = "Online";
+      } else {
+        $scope.connection_status = "Disconnected, please check your internet.";
+      } 
+    });
 
     $scope.setDate = function(){
       var date = $scope.datePick;
