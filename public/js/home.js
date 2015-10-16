@@ -69,6 +69,9 @@ angular
         });
 	
 	$scope.employeeName = "";
+        $scope.timerForm.$setPristine();
+        $scope.timerForm.$setUntouched();
+        $scope.timerForm.$setValidity();
 
     }; 
 
