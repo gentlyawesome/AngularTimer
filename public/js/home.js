@@ -80,6 +80,7 @@ angular
         
 
         var date = new Date($scope.selectedDate);
+        var out_date = new Date();
         var date_format = date.getFullYear()+'-'+date.getDate()+'-'+(date.getMonth()+1);
         var clocking = new Firebase(FBURL + date_format + '/' + id);
 
@@ -90,7 +91,7 @@ angular
               employeeName : first_data.employeeName,
 	      inDate : first_data.inDate,
 	      date : first_data.date,
-	      outDate: date.getTime(),
+	      outDate: out_date.getTime(),
 	      timeOut : true,  
 	      type : first_data.type,  
               days: data.days, 
