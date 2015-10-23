@@ -1,4 +1,3 @@
-<md-content>
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h2>
@@ -19,7 +18,6 @@
     <md-button class="md-raised md-accent md-hue-3">Date Selected: {{selectedDate | date: 'mediumDate'}}</md-button> 
     </div>
   </md-toolbar>
-
   <div layout="row" ng-repeat="block in times | chunkBy: 4">
   <md-card flex ng-repeat="(key, value) in block" ng-show="value.timeOut">
     <md-content-card>
@@ -34,5 +32,4 @@
     </md-content-card>
   </md-card>
   </div>
-</md-content>
 

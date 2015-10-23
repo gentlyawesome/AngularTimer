@@ -1,6 +1,6 @@
 angular
   .module("HomeApp", ['firebase', 'Config'])
-  .controller("HomeCtrl", function ($scope, FBURL, FBURL_BASE, FBURL_MAIN, $firebaseArray, $location){
+  .controller("HomeCtrl", function ($scope, FBURL, FBURL_BASE, FBURL_MAIN, $firebaseArray, $location, $mdToast, $animate){
     var main = new Firebase(FBURL_MAIN);
     var ref = new Firebase(FBURL);
     var ref_status = new Firebase(FBURL_BASE + ".info/connected");
@@ -68,6 +68,12 @@ angular
 	  type: type
         });
 	
+        $mdToast.show(
+          $mdToast.simple()
+          .content($scope.employeeName + " has successfully " + type)
+          .position("top right")
+        );
+
 	$scope.employeeName = "";
         $scope.timerForm.$setPristine();
         $scope.timerForm.$setUntouched();
@@ -102,6 +108,12 @@ angular
               timeoutId: data.timeoutId 
             });
           });
+          var type = first_data.type == "TimeIn" ? "TimeOut" : "Break Out";
+          $mdToast.show(
+            $mdToast.simple()
+            .content(first_data.employeeName + " has successfully " + type )
+            .position("top right")
+          );
         });
     };
 
