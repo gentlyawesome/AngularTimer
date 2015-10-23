@@ -32,9 +32,10 @@
       </md-select>
     </md-input-container>
     <center>
-    <md-button class="md-raised md-primary md-hue-2" ng-click="startTimer('TimeIn')" ng-disabled="!timerForm.$valid">Time In</md-button>
-    <md-button class="md-raised md-accent md-hue-2" ng-click="startTimer('Break')" ng-disabled="!timerForm.$valid">Break</md-button>
+    <md-button class="md-raised md-primary md-hue-2" ng-click="startTimer('TimeIn')">Time In</md-button>
+    <md-button class="md-raised md-accent md-hue-2" ng-click="startTimer('Break')" >Break</md-button>
     </center>
+    {{ timerForm.$valid }}
     </form>
     </md-content-card>
   </md-card>
